@@ -118,4 +118,28 @@ Also help me prepare a proper demo flow. I want to show the dashboard first then
 
 ---
 
-**Documentation note:** This prompt history is reconstructed from the development discussions and is not an exact exported transcript of every original message.
+Where I Relied Heavily on AI
+
+I relied heavily on AI assistance during initial architecture planning, SQL schema development, Flask API implementation, React component development and Docker configuration. Since some of these technologies and industrial workflows were new to me, AI provided explanations, implementation suggestions and debugging support throughout the development process.
+
+However, AI-generated code and suggestions were treated as assistance rather than automatically correct solutions. Some suggestions required changes to match the existing database structure, application requirements and actual runtime behaviour.
+
+What I Personally Reviewed, Changed and Validated
+
+My responsibility was to understand the requirements, decide which features were necessary, integrate the different parts of the application and verify that the implemented functionality worked as expected.
+
+I reviewed the database relationships and checked whether the records were connected correctly. I tested the Flask APIs and verified that the application could retrieve and store information in MySQL. I also checked the calibration workflow, including PASS and FAIL results, corrective action creation and work order status changes.
+
+I personally ran the application using Docker Compose and checked whether the MySQL, backend and frontend services were running. I tested the database health endpoint, opened the frontend dashboard and investigated integration issues when the expected information was not displayed.
+
+I also reviewed the generated synthetic data and checked that it was suitable for demonstrating the application workflows. I verified that the project could be started using the documented setup instructions and considered how another developer could run it on a different laptop.
+
+When AI suggestions did not match the existing implementation or caused errors, I used the error messages and application behaviour to identify what needed to be corrected. I also reviewed the final documentation and GitHub repository to ensure that the project structure and setup instructions were understandable.
+
+My Understanding and Responsibility
+
+I consider AI an important development assistant in this project, but not a replacement for understanding the application. I used it to accelerate research, coding, debugging and documentation. I was responsible for deciding what to implement, reviewing the generated suggestions, integrating the components and testing the application.
+
+I understand that generated code can contain mistakes and that an application should not be considered complete simply because the code was generated successfully. The actual implementation must be checked through database queries, API testing and application execution.
+
+The final objective was to build a working industrial calibration management prototype while using LLM assistance transparently and improving my understanding of the technologies involved.
