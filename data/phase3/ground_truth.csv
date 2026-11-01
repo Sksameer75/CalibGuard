@@ -1,0 +1,13 @@
+anomaly_id,anomaly_type,table_name,record_id,field_name,expected_rule
+ANOM-00001,INCORRECT_RECORDED_DUE_DATE,calibration_events,CAL-AST-000001-2026-000001,recorded_due_at,recorded_due_at must equal calculated_due_at for PASS
+ANOM-00002,INCORRECT_RECORDED_DUE_DATE,calibration_events,CAL-AST-000001-2026-000003,recorded_due_at,recorded_due_at must equal calculated_due_at for PASS
+ANOM-00003,INCORRECT_RECORDED_DUE_DATE,calibration_events,CAL-AST-000002-2026-000001,recorded_due_at,recorded_due_at must equal calculated_due_at for PASS
+ANOM-00004,EXPIRED_USE_WITHOUT_EXCEPTION,production_uses,USE-AST-000006-20260803223650,was_executed,Overdue production use executed with BLOCK decision and no approved extension
+ANOM-00005,EXPIRED_USE_WITHOUT_EXCEPTION,production_uses,USE-AST-000006-20260804194758,was_executed,Overdue production use executed with BLOCK decision and no approved extension
+ANOM-00006,EXPIRED_USE_WITHOUT_EXCEPTION,production_uses,USE-AST-000006-20260809010636,was_executed,Overdue production use executed with BLOCK decision and no approved extension
+ANOM-00007,CERTIFICATE_ASSET_MISMATCH,certificates,CERT-CAL-AST-000001-2026-000001,asset_id,certificate.asset_id must equal calibration_event.asset_id
+ANOM-00008,CERTIFICATE_ASSET_MISMATCH,certificates,CERT-CAL-AST-000001-2026-000003,asset_id,certificate.asset_id must equal calibration_event.asset_id
+ANOM-00009,CERTIFICATE_ASSET_MISMATCH,certificates,CERT-CAL-AST-000002-2026-000001,asset_id,certificate.asset_id must equal calibration_event.asset_id
+ANOM-00010,FAILED_CALIBRATION_MISSING_IMPACT,calibration_events,CAL-AST-000001-2026-000002,impact_assessment,FAIL calibration must have an impact assessment
+ANOM-00011,FAILED_CALIBRATION_MISSING_IMPACT,calibration_events,CAL-AST-000003-2026-000001,impact_assessment,FAIL calibration must have an impact assessment
+ANOM-00012,FAILED_CALIBRATION_MISSING_IMPACT,calibration_events,CAL-AST-000003-2026-000003,impact_assessment,FAIL calibration must have an impact assessment

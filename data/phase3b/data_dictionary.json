@@ -1,0 +1,1141 @@
+{
+  "alerts": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "alert_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "calibration_events.calibration_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "calibration_id",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "production_uses.use_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "use_id",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "issue_type",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "CRITICAL",
+          "INFO",
+          "WARNING"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "severity",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "ACKNOWLEDGED",
+          "OPEN",
+          "RESOLVED"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "alert_state",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "created_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 56200
+  },
+  "assets": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "instrument_types.instrument_type_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "instrument_type_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "suppliers.supplier_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "supplier_id",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "serial_number",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_name",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "plant_area",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "commissioned_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "retired_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": [
+          "ACTIVE",
+          "QUARANTINED",
+          "RETIRED"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "lifecycle_state",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 2000
+  },
+  "audit_records": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "audit_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "entity_name",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "entity_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "action",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "actor_reference",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "occurred_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "JSON",
+        "name": "details",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 16537
+  },
+  "calibration_events": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "calibration_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "calibration_plans.plan_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "plan_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "suppliers.supplier_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "supplier_id",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "performed_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DECIMAL",
+        "name": "reference_value",
+        "primary_key": false,
+        "required": true,
+        "unit": "asset instrument type unit",
+        "validation": "decimal"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DECIMAL",
+        "name": "measured_value",
+        "primary_key": false,
+        "required": true,
+        "unit": "asset instrument type unit",
+        "validation": "decimal"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DECIMAL",
+        "name": "absolute_error",
+        "primary_key": false,
+        "required": true,
+        "unit": "asset instrument type unit",
+        "validation": "nonnegative_decimal"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DECIMAL",
+        "name": "tolerance_at_test",
+        "primary_key": false,
+        "required": true,
+        "unit": "asset instrument type unit",
+        "validation": "positive_decimal"
+      },
+      {
+        "allowed_values": [
+          "FAIL",
+          "PASS"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "result",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "calculated_due_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "recorded_due_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "recorded_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 5000
+  },
+  "calibration_plans": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "plan_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "interval_days",
+        "primary_key": false,
+        "required": true,
+        "unit": "days",
+        "validation": "positive_int"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "effective_from",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "effective_to",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": [
+          0,
+          1
+        ],
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "policy_requires_block",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "bool"
+      },
+      {
+        "allowed_values": [
+          0,
+          1
+        ],
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "requires_certificate",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "bool"
+      },
+      {
+        "allowed_values": [
+          "ACTIVE",
+          "CANCELLED",
+          "SUPERSEDED"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "state",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 2000
+  },
+  "certificates": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "certificate_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "calibration_events.calibration_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "calibration_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "issued_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "valid_until",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": [
+          "ISSUED",
+          "REVOKED"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "certificate_status",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "document_reference",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 3483
+  },
+  "emergency_extensions": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "extension_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "approved_from",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "approved_until",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": [
+          "APPROVED",
+          "REJECTED",
+          "REQUESTED",
+          "REVOKED"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "approval_state",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "approver_reference",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "reason",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 67
+  },
+  "impact_assessments": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "assessment_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "calibration_events.calibration_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "calibration_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "COMPLETED",
+          "IN_PROGRESS",
+          "OPEN"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "status",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "created_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "closed_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "notes",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 1400
+  },
+  "instrument_types": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "instrument_type_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "type_name",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "measurement_unit",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DECIMAL",
+        "name": "tolerance",
+        "primary_key": false,
+        "required": true,
+        "unit": "measurement_unit of instrument type",
+        "validation": "decimal"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "default_interval_days",
+        "primary_key": false,
+        "required": true,
+        "unit": "days",
+        "validation": "positive_int"
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 8
+  },
+  "lifecycle_events": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "lifecycle_event_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "ALERT",
+          "ASSET",
+          "CALIBRATION_PLAN",
+          "CERTIFICATE",
+          "EMERGENCY_EXTENSION",
+          "IMPACT_ASSESSMENT",
+          "WORK_ORDER"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "entity_name",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "entity_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "from_state",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "to_state",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "occurred_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "actor_reference",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "reason",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 16537
+  },
+  "production_uses": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "use_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "used_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "batch_reference",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "ALLOW",
+          "BLOCK",
+          "CONDITIONAL_ALLOW"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "decision",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          0,
+          1
+        ],
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "was_executed",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "bool"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "evaluated_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 100000
+  },
+  "suppliers": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "supplier_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "supplier_name",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "BOTH",
+          "CALIBRATION_LAB",
+          "MANUFACTURER"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "supplier_kind",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "accreditation_reference",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 16
+  },
+  "work_order_assets": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": "work_orders.work_order_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "work_order_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "assets.asset_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "asset_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 5000
+  },
+  "work_orders": {
+    "fields": [
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "work_order_id",
+        "primary_key": true,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": "calibration_events.calibration_id",
+        "logical_type": "VARCHAR/TEXT",
+        "name": "calibration_id",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "CORRECTIVE_ACTION",
+          "INSPECTION",
+          "SCHEDULED_CALIBRATION"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "work_type",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": [
+          "CANCELLED",
+          "COMPLETED",
+          "IN_PROGRESS",
+          "OPEN"
+        ],
+        "foreign_key": null,
+        "logical_type": "VARCHAR/TEXT",
+        "name": "status",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": null
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "opened_at",
+        "primary_key": false,
+        "required": true,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "started_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "DATETIME",
+        "name": "completed_at",
+        "primary_key": false,
+        "required": false,
+        "unit": null,
+        "validation": "ISO timestamp YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "allowed_values": null,
+        "foreign_key": null,
+        "logical_type": "INTEGER",
+        "name": "downtime_minutes",
+        "primary_key": false,
+        "required": true,
+        "unit": "minutes",
+        "validation": "nonnegative_int"
+      }
+    ],
+    "notes": "Logical dictionary: consult database/schema.sql for exact SQL lengths, indexes and constraints.",
+    "row_count": 5000
+  }
+}

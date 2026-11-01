@@ -1,0 +1,103 @@
+{
+  "error_examples": [],
+  "executed_blocked_uses": 1376,
+  "exports": {
+    "data_dictionary": "data_dictionary.json",
+    "jsonl": "dataset.jsonl",
+    "sql": "dataset.sql"
+  },
+  "labelled_anomalies": 12,
+  "labels_detected": 12,
+  "pass": true,
+  "rule_counts": {
+    "CERTIFICATE_ASSET_MISMATCH": 3,
+    "DUE_DATE_MISMATCH": 3,
+    "MISSING_IMPACT": 3
+  },
+  "samples": [
+    {
+      "detail": "recorded_due_at mismatch",
+      "labelled": true,
+      "record_id": "CAL-AST-000002-2026-000001",
+      "rule": "DUE_DATE_MISMATCH",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "recorded_due_at mismatch",
+      "labelled": true,
+      "record_id": "CAL-AST-000001-2026-000001",
+      "rule": "DUE_DATE_MISMATCH",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "failed calibration has no assessment",
+      "labelled": true,
+      "record_id": "CAL-AST-000003-2026-000001",
+      "rule": "MISSING_IMPACT",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "failed calibration has no assessment",
+      "labelled": true,
+      "record_id": "CAL-AST-000001-2026-000002",
+      "rule": "MISSING_IMPACT",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "recorded_due_at mismatch",
+      "labelled": true,
+      "record_id": "CAL-AST-000001-2026-000003",
+      "rule": "DUE_DATE_MISMATCH",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "failed calibration has no assessment",
+      "labelled": true,
+      "record_id": "CAL-AST-000003-2026-000003",
+      "rule": "MISSING_IMPACT",
+      "table": "calibration_events"
+    },
+    {
+      "detail": "different existing asset",
+      "labelled": true,
+      "record_id": "CERT-CAL-AST-000001-2026-000001",
+      "rule": "CERTIFICATE_ASSET_MISMATCH",
+      "table": "certificates"
+    },
+    {
+      "detail": "different existing asset",
+      "labelled": true,
+      "record_id": "CERT-CAL-AST-000001-2026-000003",
+      "rule": "CERTIFICATE_ASSET_MISMATCH",
+      "table": "certificates"
+    },
+    {
+      "detail": "different existing asset",
+      "labelled": true,
+      "record_id": "CERT-CAL-AST-000002-2026-000001",
+      "rule": "CERTIFICATE_ASSET_MISMATCH",
+      "table": "certificates"
+    }
+  ],
+  "source_manifest_sha256": "91e8fbeb65d262dd05654f15ccc3379cce08379d26d331e2d09e10a7843b4498",
+  "structural_errors": 0,
+  "table_counts": {
+    "alerts": 56200,
+    "assets": 2000,
+    "audit_records": 16537,
+    "calibration_events": 5000,
+    "calibration_plans": 2000,
+    "certificates": 3483,
+    "emergency_extensions": 67,
+    "impact_assessments": 1400,
+    "instrument_types": 8,
+    "lifecycle_events": 16537,
+    "production_uses": 100000,
+    "suppliers": 16,
+    "work_order_assets": 5000,
+    "work_orders": 5000
+  },
+  "warnings": [
+    "Executed BLOCK decisions are compliance findings, not structural errors."
+  ]
+}

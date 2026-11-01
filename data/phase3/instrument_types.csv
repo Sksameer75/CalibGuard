@@ -1,0 +1,9 @@
+instrument_type_id,type_name,measurement_unit,tolerance,default_interval_days
+TYPE-0001,Pressure Gauge,bar,0.2000,90
+TYPE-0002,Temperature Sensor,C,0.5000,180
+TYPE-0003,Flow Meter,L/min,1.0000,90
+TYPE-0004,Weighing Scale,kg,0.0100,180
+TYPE-0005,Humidity Sensor,%RH,2.0000,90
+TYPE-0006,Voltage Meter,V,0.0500,180
+TYPE-0007,Torque Wrench,Nm,0.5000,90
+TYPE-0008,Level Transmitter,m,0.0200,180

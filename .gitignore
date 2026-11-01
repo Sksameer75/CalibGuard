@@ -1,0 +1,47 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Generated reproducibility copies
+data/repro_run1/
+data/repro_run2/
+
+# Local project inventory
+project_structure.txt
+
+# Large or unnecessary data files
+data/phase3b/dataset.jsonl
+data/generated/
+
+# Avoid accidental use of destructive database snapshots
+database/current_schema.sql

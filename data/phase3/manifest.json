@@ -1,0 +1,58 @@
+{
+  "files": {
+    "alerts.csv": {
+      "sha256": "6f80f4c8e9c57126b39f6cd22497f924228ba8b91d6756204a0ae9f9fbcc7ed8"
+    },
+    "assets.csv": {
+      "sha256": "6375f826a0500f4a33fabddb7921286ca01c65724996936e6bad614e580eb79a"
+    },
+    "audit_records.csv": {
+      "sha256": "6bbf9f46eb906f34cd376e4b9917ce0b147bc4c83280926de76de21e9180c6c8"
+    },
+    "calibration_events.csv": {
+      "sha256": "1299e8877180d85bf17fd07cc048ba2c94f3133a96a124dba590d0583be51949"
+    },
+    "calibration_plans.csv": {
+      "sha256": "758fe87d73a69c40d19a4baa957cafdbff2fbcfc439251949248471b14fe3eaa"
+    },
+    "certificates.csv": {
+      "sha256": "c44446758438551ba2ead9d84612f3c4083cce77608716dac31927c3d54d5e69"
+    },
+    "emergency_extensions.csv": {
+      "sha256": "29a79d3c23928f7808bd2065fbc44b0849e2e0a6794597673a429167961ca909"
+    },
+    "ground_truth.csv": {
+      "sha256": "01a2e53a9bd1252351966dd75f69f4a0c929c2d17970c90c4b8bc3b0f93522ac"
+    },
+    "ground_truth.json": {
+      "sha256": "6762ee0ce1023ec41ae665f8d8b1a9d72c51c40e7dbcd3adf46856e3eb394545"
+    },
+    "impact_assessments.csv": {
+      "sha256": "b819f3d664400c09ad661b4975c3de86818211842184a9525a79e2864aa5338d"
+    },
+    "instrument_types.csv": {
+      "sha256": "a4056a69e3f3fee64b66a06f8760800529503bedd1a1039827a84c24f7596cf0"
+    },
+    "lifecycle_events.csv": {
+      "sha256": "25fcd1b56cce33620fa9c409531cd7132090dae692ff17cf25a7b7babf05e4a9"
+    },
+    "production_uses.csv": {
+      "sha256": "e5391eb1d3e8aaa4fad5403541c5bd2a3cc8a0f6538d6354379ef61d9ecb93b2"
+    },
+    "suppliers.csv": {
+      "sha256": "74f490fd8de148f7bc591d95b7b825a33b3c10171d270b40613948482c03003a"
+    },
+    "validation_report.json": {
+      "sha256": "8a17b5ebeb932b3718c6cff918837122565f903e0197fd3e92a3da4c9f6df983"
+    },
+    "work_order_assets.csv": {
+      "sha256": "6dad9a80626f31e0fa78e3a6ac1fd4d34ee4124a0f9469a5ebf5e64ed98c9dfa"
+    },
+    "work_orders.csv": {
+      "sha256": "1f831757f7456e52c8916e3dfe989d9eb352b378a6529831ed6c461a16965877"
+    }
+  },
+  "seed": 20261022,
+  "stage": "phase3_labelled_anomalies",
+  "synthetic": true
+}

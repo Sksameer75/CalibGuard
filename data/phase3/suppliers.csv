@@ -1,0 +1,17 @@
+supplier_id,supplier_name,supplier_kind,accreditation_reference
+SUP-0001,Synthetic Supplier 01,MANUFACTURER,
+SUP-0002,Synthetic Supplier 02,CALIBRATION_LAB,SYNTH-ACC-0002
+SUP-0003,Synthetic Supplier 03,BOTH,SYNTH-ACC-0003
+SUP-0004,Synthetic Supplier 04,MANUFACTURER,
+SUP-0005,Synthetic Supplier 05,CALIBRATION_LAB,SYNTH-ACC-0005
+SUP-0006,Synthetic Supplier 06,BOTH,SYNTH-ACC-0006
+SUP-0007,Synthetic Supplier 07,MANUFACTURER,
+SUP-0008,Synthetic Supplier 08,CALIBRATION_LAB,SYNTH-ACC-0008
+SUP-0009,Synthetic Supplier 09,BOTH,SYNTH-ACC-0009
+SUP-0010,Synthetic Supplier 10,MANUFACTURER,
+SUP-0011,Synthetic Supplier 11,CALIBRATION_LAB,SYNTH-ACC-0011
+SUP-0012,Synthetic Supplier 12,BOTH,SYNTH-ACC-0012
+SUP-0013,Synthetic Supplier 13,MANUFACTURER,
+SUP-0014,Synthetic Supplier 14,CALIBRATION_LAB,SYNTH-ACC-0014
+SUP-0015,Synthetic Supplier 15,BOTH,SYNTH-ACC-0015
+SUP-0016,Synthetic Supplier 16,MANUFACTURER,

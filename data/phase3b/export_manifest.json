@@ -1,0 +1,22 @@
+{
+  "files": {
+    "data_dictionary.json": {
+      "bytes": 31181,
+      "sha256": "3f3cbdad2a72566c7a6af96fe0e9f3ed0ad89d778b5f8ca5ac5af162e792f53d"
+    },
+    "dataset.jsonl": {
+      "bytes": 58676831,
+      "sha256": "5ccdb45a2e1b72a731a80379f1936ec50ba9f44fce1b247b0f9add133e44e017"
+    },
+    "dataset.sql": {
+      "bytes": 28558195,
+      "sha256": "e20b3827e62a5df992bc77486baeb58eaeea1f88b0acbb64d8fe6576702260eb"
+    },
+    "quality_report.json": {
+      "bytes": 2980,
+      "sha256": "65090d49dbb4c27bed3fe30a0966218b1c3740f02cdb962eb30ece299cd340c0"
+    }
+  },
+  "seed": 20261022,
+  "source": "data\\phase3"
+}

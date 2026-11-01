@@ -1,0 +1,18 @@
+{
+  "anomaly_counts": {
+    "CERTIFICATE_ASSET_MISMATCH": 3,
+    "EXPIRED_USE_WITHOUT_EXCEPTION": 3,
+    "FAILED_CALIBRATION_MISSING_IMPACT": 3,
+    "INCORRECT_RECORDED_DUE_DATE": 3
+  },
+  "baseline_findings": 242,
+  "injected_anomalies": 12,
+  "integrity_errors": [],
+  "labelled_findings_detected": 12,
+  "new_findings": 12,
+  "pass": true,
+  "seed": 20261022,
+  "total_findings": 254,
+  "unexpected_new_findings": 0,
+  "unmatched_labels": 0
+}
