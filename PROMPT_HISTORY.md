@@ -118,13 +118,13 @@ Also help me prepare a proper demo flow. I want to show the dashboard first then
 
 ---
 
-Where I Relied Heavily on AI
+## Where I Relied Heavily on AI
 
 I relied heavily on AI assistance during initial architecture planning, SQL schema development, Flask API implementation, React component development and Docker configuration. Since some of these technologies and industrial workflows were new to me, AI provided explanations, implementation suggestions and debugging support throughout the development process.
 
 However, AI-generated code and suggestions were treated as assistance rather than automatically correct solutions. Some suggestions required changes to match the existing database structure, application requirements and actual runtime behaviour.
 
-What I Personally Reviewed, Changed and Validated
+## What I Personally Reviewed, Changed and Validated
 
 My responsibility was to understand the requirements, decide which features were necessary, integrate the different parts of the application and verify that the implemented functionality worked as expected.
 
@@ -136,7 +136,7 @@ I also reviewed the generated synthetic data and checked that it was suitable fo
 
 When AI suggestions did not match the existing implementation or caused errors, I used the error messages and application behaviour to identify what needed to be corrected. I also reviewed the final documentation and GitHub repository to ensure that the project structure and setup instructions were understandable.
 
-My Understanding and Responsibility
+## My Understanding and Responsibility
 
 I consider AI an important development assistant in this project, but not a replacement for understanding the application. I used it to accelerate research, coding, debugging and documentation. I was responsible for deciding what to implement, reviewing the generated suggestions, integrating the components and testing the application.
 
