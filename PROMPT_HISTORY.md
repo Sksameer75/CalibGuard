@@ -1,440 +1,121 @@
-# CalibGuard — AI Prompt History
+# CalibGuard – AI Prompt History
 
-## 1. Project Context
+This document contains the prompts and discussions used during the development of CalibGuard. The prompts are organized phase by phase based on the development process.
 
-**Project:** CalibGuard — Industrial Calibration & Compliance Management Platform
+## Phase 1 – Project Understanding and Planning
 
-**Challenge:** YottaFlex.ai — Associate AI Forward Deployed Engineer, 72-Hour Challenge
+I got a 72 hours challenge from YottaFlex.ai and i need to build a project for this challenge. First explain me what exactly they are expecting and what kind of application i should develop. I don't want to build a simple CRUD application because it should be something which looks like a real world industry project. Can you suggest a good project idea which covers backend database frontend and some AI related functionality?
 
-**Purpose:** Build a working industrial calibration and compliance management platform using AI-assisted development.
+I was thinking about building an industrial calibration management system but i don't know how these systems actually work in companies. Explain me the complete workflow from registering an instrument to calibration and what happens when an instrument fails calibration. Also tell me what are the important features i need to include in this project. I have only 72 hours so divide the development into proper phases and help me complete the important functionality first.
 
-**Development approach:** Iterative development using AI for requirements analysis, architecture, synthetic data generation, backend development, frontend implementation, validation, debugging, and documentation.
+## Phase 2 – Project Architecture and Setup
+
+Okay lets go with CalibGuard. Now i want to start the project from scratch. I am planning to use Python Flask for backend, MySQL for database and React for frontend. Give me a proper folder structure and explain why we are creating each folder. I don't want to keep all the backend code in one file because later it will become difficult to manage.
+
+Before starting the development explain how the complete application will communicate with each other. For example when i click a button in React how the request will go to Flask and how Flask will communicate with MySQL. Explain with a simple example so that i can understand the architecture properly. Also tell me which things i need to install before starting the project.
+
+## Phase 3 – Database Design and Relationships
+
+Now lets focus on the database first. This project is mainly related to industrial instruments and their calibration history so design the MySQL database properly. I need tables for assets, instrument types, suppliers, calibration plans, calibration events, certificates, work orders and other required details. Think about the real industry workflow and don't miss important relationships.
+
+I am still confused about how the tables are connected. For example one asset can have multiple calibration events and one supplier can supply multiple assets. Explain these relationships with practical examples and show me how to use primary key and foreign key for these tables. Also check whether the database design is normalized properly and whether any duplicate data can occur.
+
+I want to make this database reliable. What constraints should i use to prevent invalid records? Explain how we can handle unique asset codes, required fields and foreign key restrictions. I want the database to maintain proper history instead of simply overwriting old calibration records.
+
+## Phase 4 – MySQL Implementation
+
+The database design is okay now lets create the actual schema.sql file. Give me the complete SQL code in the correct order because some tables depend on other tables. I want to execute this in MySQL and verify all tables are created successfully.
+
+I am planning to use MySQL inside Docker because i want the database to run separately from my local system. Explain how to connect to the MySQL container and check the database tables. Also give me some queries to verify primary keys foreign keys and constraints. If any table creation fails i will share the error so help me fix it without changing the complete database unnecessarily.
+
+## Phase 5 – Flask Backend and REST APIs
+
+Now database setup is completed. Lets start the Flask backend. I want to create proper REST APIs for assets suppliers instrument types calibration plans and calibration events. Explain how to organize the routes and database connection code. Make sure the API responses are in proper JSON format and validation errors are handled correctly.
+
+I want to test the APIs before connecting React frontend. Give me some examples of GET POST PUT and DELETE requests and explain how to test them using Postman or PowerShell. Also tell me what response i should get when an asset is created successfully.
+
+I got some errors while running the backend and i am not understanding the actual reason. I will share the terminal output and code. Check the root cause and give me the complete corrected file because i don't want to replace small code sections and accidentally miss something.
+
+## Phase 6 – Calibration Workflow and Corrective Actions
+
+I want to implement the actual calibration workflow now. When a new instrument is registered it should have a calibration plan and due date. After calibration is performed the result should be stored as PASS or FAIL. Explain how this workflow should work in the backend and database.
+
+One important requirement is when an instrument fails calibration the system should not allow it to be used in production. It should create a corrective action work order so the responsible person can investigate and fix the issue. How can we implement this properly?
+
+Also if the same failed calibration is submitted again the application should not create multiple work orders. I want to prevent duplicate corrective actions. Explain how we can use database transactions and locking to make this reliable.
+
+## Phase 7 – Work Orders and Production Authorization
+
+Now lets improve the work order module. I want work orders to have different statuses like OPEN IN_PROGRESS COMPLETED and CANCELLED. Explain how status transitions should work and what validations should be applied when changing the status.
+
+For corrective work orders i want to make sure the impact assessment is completed before marking the work order as completed. If the assessment is still pending then it should reject the request. Help me implement this validation in the backend.
+
+I also want to maintain audit history whenever an important action happens in the application. For example when an asset is registered or calibration is performed or work order status is changed. Explain how to store these changes so that we can track who performed the action and when it happened.
+
+## Phase 8 – React Frontend Development
+
+Backend APIs are working now lets start the React frontend. I want a professional industrial dashboard with a clean design. It should not look like a normal college project. Use a suitable color combination and make the dashboard easy to understand.
+
+The dashboard should show total assets, calibration due, failed calibration, open work orders and alerts. Create separate pages for assets calibration work orders suppliers and audit history. I want the navigation and forms to work properly.
+
+Now connect the frontend with Flask APIs. I am seeing some empty pages even though the database contains records. Check whether the API response structure and frontend code are matching correctly. Also handle loading states error messages and empty data properly.
+
+## Phase 9 – Synthetic Dataset Generation
+
+The dashboard is looking empty without enough records. I need realistic synthetic data for industrial instruments and calibration events. Help me generate a dataset with different instrument types suppliers assets and calibration history. The records should be connected properly using foreign keys.
+
+I don't want only PASS calibration results. Include some failed calibration cases and different scenarios so that i can demonstrate how the corrective action workflow works. Also generate production usage records so we can demonstrate whether an instrument is being used when it should not be.
+
+Can we make the dataset larger so the application looks realistic during the demo? I want to generate the data automatically instead of inserting everything manually. Make sure the generated records are reproducible and don't create invalid relationships.
+
+## Phase 10 – Anomaly Detection and Alert Management
+
+Now i want to add anomaly detection functionality. First explain what kind of anomalies are relevant to an industrial calibration management system. For example repeated calibration failures unusual readings overdue calibration and instruments being used after failing calibration.
+
+I want the system to identify these situations and create alerts in the dashboard. Explain how to implement the detection logic and how the alert status should be maintained.
+
+One thing i want to understand clearly is whether this implementation is actually using machine learning or only rule based detection. Don't call it machine learning if we are not training a model. Explain what we have implemented and how i should explain it during the challenge review.
+
+## Phase 11 – Testing and Bug Fixing
+
+Now the main modules are developed. I want to test the complete application workflow. Start from registering an asset and assigning a calibration plan then perform calibration and check what happens when the result is PASS or FAIL.
+
+Also test what happens if someone tries to create a corrective action without a failed calibration. It should reject the request. Check whether duplicate corrective work orders can be created and whether a failed asset can still be authorized for production.
+
+I am getting some errors in the frontend and backend. I will share screenshots and terminal logs. Please identify the actual issue and give me the complete corrected file. Don't randomly change other working functionality while fixing one issue.
+
+## Phase 12 – Docker Containerization
+
+I want to run the complete CalibGuard application using Docker Compose. My application has three main services which are MySQL backend and frontend. Explain how to create the Dockerfiles and docker-compose.yml file for these services.
+
+I am facing some confusion about Docker networking. The frontend is running on one port and backend on another port but inside Docker they are communicating using service names. Explain this clearly with an example.
+
+I also want my database data to remain safe after shutting down my laptop. Explain how Docker volumes work and how to verify that the data is still available after restarting the containers. Also explain the difference between docker compose down and docker compose down -v because i don't want to delete my database accidentally.
+
+## Phase 13 – GitHub and Documentation
+
+Now the application is working locally and i want to upload the complete project to GitHub. Tell me the proper steps to push the project and check whether any unwanted files are getting uploaded. I don't want to upload .env files or database passwords to a public repository.
+
+Help me prepare a professional README with the project overview features technologies used folder structure installation steps Docker commands and screenshots. Someone should be able to clone the repository and run the project by following the instructions.
+
+I also want to maintain the prompts i used during development. How can i add this prompt history separately in GitHub? My README is already present so i don't want to replace it. Explain which file format is better and how to upload it.
+
+## Phase 14 – Running the Project on Another Laptop
+
+My laptop is very slow and i want to continue this project on my friend's laptop. I already uploaded the project to GitHub. Explain exactly what steps i need to follow on another laptop. Should i clone the repository or copy the complete folder?
+
+If i clone the project will my MySQL database records also come automatically or do i need to generate them again? Explain how Docker volumes and database initialization scripts work when running the project for the first time on a different system.
+
+Give me the exact commands to install dependencies start Docker Compose and verify the frontend backend and database are running. I want the project to work without depending on my original laptop.
+
+## Phase 15 – Final Review and Challenge Submission
+
+Now i want to prepare for the final YottaFlex.ai challenge submission. Review the project based on the challenge requirements and tell me honestly what is missing. Don't say everything is perfect if there are any technical problems.
+
+I need to explain the project architecture database relationships calibration workflow corrective actions anomaly detection and Docker setup during the review. Explain each module in simple technical language so i can answer questions without memorizing random definitions.
+
+Also help me prepare a proper demo flow. I want to show the dashboard first then register an asset perform calibration demonstrate a failed calibration and show how the corrective action and alert are generated. Finally i want to explain the technical architecture and show the GitHub repository.
 
 ---
 
-## 2. Master Project Development Prompt
-
-The following is a consolidated reconstruction of the project brief used to guide development.
-
-### Master Prompt
-
-Act as a Senior Software Architect, Industrial Compliance Domain Expert, Python Backend Engineer, Database Architect, Data Engineer, and Frontend Developer.
-
-I want to develop a complete, functional, professional-grade industrial calibration and compliance management platform called **CalibGuard**.
-
-This project is being developed for a 72-hour technical challenge for an Associate AI Forward Deployed Engineer position at YottaFlex.ai.
-
-Do not build a static dashboard or a simple CRUD application. Build a working end-to-end platform that demonstrates industrial business logic, data integrity, calibration compliance, anomaly detection, traceability, and operational workflows.
-
-### A. Business Problem
-
-Manufacturing organizations depend on instruments such as pressure gauges, temperature sensors, flow meters, and weighing systems.
-
-These instruments require periodic calibration to maintain measurement accuracy and compliance.
-
-The platform must help organizations:
-
-- Maintain instrument master records.
-- Manage calibration schedules.
-- Track calibration results.
-- Manage calibration certificates.
-- Identify expired and invalid calibration conditions.
-- Prevent unauthorized production usage where policy requires blocking.
-- Manage maintenance work orders.
-- Handle calibration failures and impact assessments.
-- Maintain audit trails and traceability.
-
-### B. User Roles
-
-Design workflows around these users:
-
-1. Plant Operator
-2. Maintenance / Quality Engineer
-3. Production Planner
-4. OT / IT Administrator
-
-### C. Core Database Entities
-
-Design a relational MySQL database covering:
-
-- Assets
-- Instrument Types
-- Calibration Plans
-- Calibration Events
-- Certificates
-- Work Orders
-- Production Uses
-- Suppliers
-- Alerts
-- Audit Records
-
-Include additional entities where required for:
-
-- Emergency Extensions
-- Impact Assessments
-- Work Order Asset Relationships
-- Asset Lifecycle Events
-
-Use proper primary keys, foreign keys, constraints, and relationships.
-
-### D. Synthetic Data Generation
-
-Create a deterministic industrial synthetic dataset using Python.
-
-Target dataset:
-
-- 2,000 instruments
-- 5,000 calibration events
-- 100,000 production-use records
-- One year of synthetic operating history
-- Fixed random seed: 20261022
-
-Generate related records using valid parent IDs and consistent relationships.
-
-Do not generate arbitrary disconnected records.
-
-Calibration results, certificate validity, production-use decisions, and compliance outcomes must follow documented business rules.
-
-### E. Industrial Business Logic
-
-Implement the following workflows:
-
-1. Create instrument master records.
-2. Assign calibration plans.
-3. Generate calibration events.
-4. Determine calibration pass/fail results.
-5. Generate certificates for applicable calibration events.
-6. Generate maintenance work orders.
-7. Generate production-use records.
-8. Evaluate whether instruments are eligible for production use.
-9. Identify expired calibration conditions.
-10. Identify invalid certificates.
-11. Handle approved emergency extensions.
-12. Generate corrective actions and impact assessments for failed calibration events.
-
-Maintain historical traceability instead of overwriting important business events.
-
-### F. Authorization Engine
-
-Implement rule-based instrument-use authorization.
-
-Evaluate:
-
-- Asset lifecycle state.
-- Latest calibration result.
-- Calibration plan validity.
-- Calibration due date.
-- Certificate validity.
-- Certificate-to-asset relationship.
-- Active maintenance work orders.
-- Approved emergency extensions.
-- Instrument-specific blocking policies.
-
-Return clear decisions:
-
-- ALLOW
-- CONDITIONAL_ALLOW
-- BLOCK
-
-Include explanations for authorization decisions.
-
-An emergency extension must not override failed calibration or invalid certificate conditions.
-
-### G. Anomaly Injection and Detection
-
-Create a separate anomaly injection and detection module.
-
-Plant exactly 12 anomalies across four categories, with three anomalies per category.
-
-The four categories are:
-
-1. Due-date inconsistency.
-2. Expired instrument used without an approved exception.
-3. Certificate linked to the wrong asset.
-4. Failed calibration without an impact assessment.
-
-Maintain separate ground-truth labels.
-
-Implement detection rules and compare detected anomalies against ground truth.
-
-Do not confuse planted-anomaly detection results with general machine-learning accuracy.
-
-### H. Data Validation and Reproducibility
-
-Implement comprehensive data validation.
-
-Check:
-
-- Primary-key uniqueness.
-- Foreign-key integrity.
-- Required fields.
-- Data types.
-- Enum values.
-- Timestamp consistency.
-- Calibration calculations.
-- Certificate relationships.
-- Work-order consistency.
-- Production-use conditions.
-- Emergency-extension relationships.
-- Lifecycle-event relationships.
-- Audit-record structure.
-
-Implement deterministic reproducibility testing.
-
-Generate the dataset twice using the same seed and compare output hashes.
-
-Generate:
-
-- CSV exports.
-- JSONL exports.
-- SQL exports.
-- Data dictionary.
-- Validation report.
-- Export manifest.
-- Ground-truth anomaly files.
-
-### I. Backend Development
-
-Use:
-
-- Python
-- Flask
-- MySQL 8.4
-- REST APIs
-
-Develop endpoints for:
-
-- Health checks.
-- Database verification.
-- Dashboard metrics.
-- Assets.
-- Individual asset details.
-- Calibration records.
-- Alerts.
-- Production usage.
-- Authorization evaluation.
-- Scheduling.
-- Work-order management.
-- Corrective actions.
-- Impact assessments.
-
-Use structured JSON responses, appropriate HTTP status codes, validation, error handling, and database connection management.
-
-### J. Frontend Development
-
-Use:
-
-- React
-- TypeScript
-- Vite
-- HTML
-- CSS
-
-Build a professional industrial dashboard with a consistent design system.
-
-Include:
-
-1. Overview Dashboard
-2. Asset Explorer
-3. Calibration Explorer
-4. Alerts
-5. Production Usage
-6. Authorization Simulator
-7. Scheduling Workspace
-8. Corrective Actions Workspace
-
-The dashboard must retrieve information from the Flask backend.
-
-Do not use hardcoded sample metrics to simulate a working application.
-
-Use a consistent light industrial interface with readable typography, organized cards, tables, filters, and clear status indicators.
-
-### K. Project Quality Requirements
-
-The project must be:
-
-- Functional end to end.
-- Database-driven.
-- Reproducible.
-- Validated.
-- Documented.
-- Organized for GitHub.
-- Suitable for technical demonstration.
-
-Provide complete files when implementing or correcting modules.
-
-Avoid unnecessary modifications to working files.
-
-Do not claim that features are complete unless they have been implemented and tested.
-
-Explain architectural decisions and identify limitations honestly.
-
----
-
-## 3. Iterative Development Prompts
-
-The following sections reconstruct the major prompt categories used during implementation. They are organized by development phase, not presented as a verbatim transcript.
-
-### Phase 1 — Requirements and Architecture
-
-**Prompt objective:** Understand the industrial problem and translate the challenge requirements into a technical architecture.
-
-- Analyze the industrial calibration and compliance problem.
-- Identify entities and relationships.
-- Define the database-first architecture.
-- Separate master data from dependent transactional records.
-- Define the business workflows.
-- Establish measurable acceptance criteria.
-
-### Phase 2 — MySQL Database Design
-
-**Prompt objective:** Build a relational database that supports the complete application.
-
-- Design the MySQL schema.
-- Define primary and foreign keys.
-- Establish relationships between assets, plans, calibration events, certificates, work orders, and production usage.
-- Add emergency-extension, impact-assessment, and lifecycle-event support.
-- Validate relationships and constraints.
-- Keep the active demonstration database separate from schema-only databases.
-
-### Phase 3 — Synthetic Data Generator
-
-**Prompt objective:** Generate realistic and reproducible industrial records.
-
-- Implement Python master-data generation.
-- Generate calibration plans and events.
-- Generate certificates and work orders.
-- Generate production-use records.
-- Use fixed seed 20261022.
-- Preserve valid relationships between generated records.
-- Implement business rules for calibration and production authorization.
-
-### Phase 4 — Anomaly Injection and Detection
-
-**Prompt objective:** Introduce controlled anomalies and verify detection.
-
-- Implement four anomaly categories.
-- Inject three anomalies per category.
-- Maintain separate ground-truth records.
-- Implement detection logic.
-- Compare detected results against expected results.
-- Generate anomaly reports.
-
-### Phase 5 — Data Validation and Export
-
-**Prompt objective:** Validate dataset quality and reproducibility.
-
-- Implement structural validation.
-- Validate business rules.
-- Check relationships and timestamp consistency.
-- Generate the dataset twice.
-- Compare output hashes.
-- Export CSV, JSONL, and SQL.
-- Generate data dictionaries, reports, and manifests.
-
-### Phase 6 — Flask Backend
-
-**Prompt objective:** Build the REST API layer.
-
-- Configure Flask and MySQL connectivity.
-- Implement database connection management.
-- Build health and verification endpoints.
-- Implement dashboard metrics.
-- Implement asset, calibration, alert, and production-use endpoints.
-- Add authorization evaluation.
-- Implement scheduling and work-order endpoints.
-- Implement corrective-action and impact-assessment endpoints.
-- Add error handling and JSON serialization.
-
-### Phase 7 — React Frontend
-
-**Prompt objective:** Build the industrial dashboard.
-
-- Configure React, TypeScript, and Vite.
-- Establish consistent styling.
-- Connect the frontend to Flask APIs.
-- Build the overview dashboard.
-- Build asset and calibration explorers.
-- Build alerts and production-use views.
-- Implement the Authorization Simulator.
-- Implement the Scheduling Workspace.
-- Implement the Corrective Actions Workspace.
-- Resolve TypeScript and production-build errors.
-
-### Phase 8 — Integration and Debugging
-
-**Prompt objective:** Make the application work as one integrated system.
-
-- Verify backend connectivity.
-- Verify MySQL connectivity.
-- Resolve API response mismatches.
-- Resolve frontend build errors.
-- Test scheduling and work-order workflows.
-- Test authorization decisions.
-- Test corrective-action workflows.
-- Align CSS across application modules.
-- Avoid modifying unrelated working components.
-
-### Phase 9 — Docker and GitHub Preparation
-
-**Prompt objective:** Prepare the project for reviewers.
-
-- Review the repository structure.
-- Protect environment credentials.
-- Prepare `.env.example`.
-- Configure `.gitignore`.
-- Consolidate project documentation into one root README.
-- Prepare Docker Compose and service configurations.
-- Preserve database persistence.
-- Test the project from a fresh clone.
-- Prepare GitHub screenshots and documentation.
-
----
-
-## 4. AI-Assisted Development Principles
-
-The AI-assisted development process followed these principles:
-
-1. Build incrementally rather than generating the entire application in one step.
-2. Prioritize database integrity and business rules.
-3. Validate generated data before integrating it into the application.
-4. Use actual backend responses in frontend components.
-5. Test features after implementation.
-6. Preserve working code when making changes.
-7. Document known limitations rather than exaggerating functionality.
-8. Use deterministic data generation for repeatable demonstrations.
-
----
-
-## 5. Important Implementation Limitations
-
-The following distinctions must be preserved in the final technical submission:
-
-- Authorization evaluation is currently a simulator and does not itself persist production-use transactions.
-- Production-grade authentication and role-based access control are not yet implemented.
-- Synthetic records are used instead of live industrial data.
-- Corrective-action workflows can be extended with mandatory root-cause analysis, verification evidence, and effectiveness checks.
-- Real equipment, ERP, CMMS, and OT integrations are not included.
-
----
-
-## 6. Final Development Outcome
-
-The resulting CalibGuard implementation includes:
-
-- MySQL industrial database.
-- Python synthetic data generator.
-- 2,000 generated instruments.
-- 5,000 calibration events.
-- 100,000 production-use records.
-- Four anomaly categories with 12 planted anomalies.
-- Anomaly detection and ground-truth comparison.
-- Data integrity and reproducibility validation.
-- CSV, JSONL, and SQL export functionality.
-- Flask REST API.
-- React and TypeScript dashboard.
-- Authorization Simulator.
-- Scheduling and Work Order Management.
-- Corrective Actions and Impact Assessment workflows.
-
-**Note:** This document is a reconstructed summary of the major development prompts and instructions. It is not an exact export of the original ChatGPT conversation history.
+**Documentation note:** This prompt history is reconstructed from the development discussions and is not an exact exported transcript of every original message.
