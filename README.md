@@ -3,20 +3,20 @@
 
 CalibGuard is a full-stack industrial calibration and compliance management platform designed to help organizations monitor instrument calibration schedules, manage certificates, track work orders, identify compliance risks, and maintain operational traceability.
 
-The project combines a Python Flask backend, React frontend, MySQL database, synthetic industrial datasets, and deterministic anomaly detection workflows.
+The platform combines a React frontend, Python Flask REST API, MySQL database, synthetic industrial datasets, and anomaly detection workflows.
 
-## Key Features
+## Features
 
-- **Calibration Management** — Track instruments, calibration plans, calibration events, and calibration status.
-- **Certificate Management** — Maintain calibration certificate records and associated information.
-- **Work Order Management** — Organize and track calibration-related work orders.
-- **Overdue Calibration Monitoring** — Identify overdue instruments and potential compliance issues.
-- **Anomaly Detection** — Generate and analyze synthetic industrial data containing injected anomalies.
-- **Risk and Impact Assessment** — Evaluate the operational impact of calibration and compliance issues.
-- **Alerts and Audit Records** — Maintain alerts and records of important system activities.
-- **Lifecycle History** — Preserve important lifecycle events for traceability.
-- **Authorization Simulator** — Demonstrate authorization and decision workflows.
-- **Dashboard** — Present calibration and compliance information through a web interface.
+- **Calibration Management:** Track instruments, calibration plans, events, and calibration status.
+- **Certificate Management:** Maintain calibration certificate records.
+- **Work Order Management:** Organize calibration-related work orders.
+- **Overdue Calibration Monitoring:** Identify overdue instruments and potential compliance issues.
+- **Anomaly Detection:** Generate and analyze synthetic industrial data containing injected anomalies.
+- **Risk and Impact Assessment:** Evaluate operational impact and compliance risks.
+- **Alerts and Audit Records:** Track alerts and important system activities.
+- **Lifecycle History:** Maintain records for operational traceability.
+- **Authorization Simulator:** Demonstrate authorization and decision workflows.
+- **Interactive Dashboard:** View calibration and compliance information.
 
 ## Technology Stack
 
@@ -28,13 +28,11 @@ The project combines a Python Flask backend, React frontend, MySQL database, syn
 | Database Connector | MySQL Connector/Python |
 | Containerization | Docker, Docker Compose |
 | Data Processing | Python, CSV, JSONL |
-| Testing | Python test suite |
 
-## Project Architecture
+## Project Structure
 
 ```text
 CalibGuard/
-│
 ├── backend/
 │   ├── api.py
 │   ├── generator.py
@@ -49,7 +47,6 @@ CalibGuard/
 │   └── 002_integrity_and_history.sql
 │
 ├── data/
-│   ├── generated/
 │   ├── phase3/
 │   └── phase3b/
 │       └── dataset.sql
@@ -67,37 +64,42 @@ CalibGuard/
 └── README.md
 ```
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
-
-Install the following before running the project:
+Install:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/)
 
-Docker Desktop must be running before you execute the commands below.
+Make sure Docker Desktop is running.
 
-You do not need to install MySQL, Python, or Node.js separately to run the Docker-based setup.
+You do not need to install MySQL, Python, or Node.js separately for the Docker-based setup.
 
-### 1. Clone the Repository
+## Installation and Execution
 
-```bash
+### Step 1: Clone the Repository
+
+Open VS Code terminal or PowerShell:
+
+```powershell
 git clone https://github.com/Sksameer75/CalibGuard.git
+```
+
+Navigate into the project:
+
+```powershell
 cd CalibGuard
 ```
 
-### 2. Configure Environment Variables
+### Step 2: Configure Environment Variables
 
-Create your local environment file:
-
-**Windows PowerShell:**
+Create your environment file:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Open `.env` and replace the example passwords with your own strong passwords.
+Open `.env` and configure your own passwords:
 
 ```env
 MYSQL_ROOT_PASSWORD=your_secure_root_password
@@ -107,179 +109,253 @@ DB_PASSWORD=your_secure_app_password
 
 Important:
 - `MYSQL_PASSWORD` and `DB_PASSWORD` must match.
-- Use your own passwords.
-- Never commit `.env` to GitHub.
-- `.env.example` contains placeholders only.
+- Replace all example passwords with your own.
+- Never upload `.env` to GitHub.
 
-### 3. Build and Start the Application
+### Step 3: Start CalibGuard
 
 Run:
 
-```bash
+```powershell
 docker compose up --build -d
 ```
 
-Docker Compose will:
+Docker Compose automatically:
 
-1. Build the Flask backend image.
-2. Build the React frontend image.
-3. Start the MySQL 8.4 database.
-4. Create the `calibguard` database and application user.
-5. Execute the database schema.
-6. Apply the integrity and lifecycle migration.
-7. Import the demonstration dataset.
-8. Start the backend after MySQL becomes healthy.
-9. Start the frontend.
+1. Builds the backend image.
+2. Builds the frontend image.
+3. Starts the MySQL database.
+4. Creates the `calibguard` database and application user.
+5. Executes the database schema.
+6. Applies database integrity constraints and lifecycle migration.
+7. Imports the demonstration dataset.
+8. Starts the Flask backend.
+9. Starts the React frontend.
 
-**The database initialization scripts execute automatically when the MySQL data volume is first created.**
+Wait until the containers are running.
 
-### 4. Access the Application
-
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:5173 |
-| Backend API health | http://localhost:5000/api/health |
-| MySQL | localhost:3308 |
-
-### 5. Verify the Backend
+### Step 4: Display the Frontend URL in the Terminal
 
 Run:
 
-```bash
-curl http://localhost:5000/api/health
+```powershell
+docker compose logs -f frontend
 ```
 
-A successful response should report the database status as `ok` and show the MySQL version.
+The Vite development server should display output similar to:
 
-### 6. View Container Status
+```text
+VITE ready
 
-```bash
+Local:   http://localhost:5173/
+Network: http://172.x.x.x:5173/
+```
+
+The exact network address may differ.
+
+**Open the Local URL shown in your terminal in your browser.**
+
+For example:
+
+```text
+http://localhost:5173/
+```
+
+To stop displaying logs, press:
+
+```text
+Ctrl + C
+```
+
+This only stops log monitoring. It does not stop the application.
+
+### Step 5: Verify the Backend
+
+Open another VS Code terminal and run:
+
+```powershell
+Invoke-RestMethod http://localhost:5000/api/health
+```
+
+A successful response should show:
+
+```text
+database   mysql_version status
+--------   ------------- ------
+calibguard 8.4.13        ok
+```
+
+### Step 6: Verify Docker Containers
+
+```powershell
 docker compose ps
 ```
 
-View logs:
+Expected services:
 
-```bash
-docker compose logs -f
-```
+| Service | Port | Purpose |
+|---|---|---|
+| Frontend | 5173 | React web application |
+| Backend | 5000 | Flask REST API |
+| MySQL | 3308 | Database |
 
-View individual service logs:
+## Application Access
 
-```bash
-docker compose logs backend
-docker compose logs frontend
-docker compose logs mysql
-```
+After successful startup:
+
+| Component | Local Address |
+|---|---|
+| Web Dashboard | http://localhost:5173 |
+| Backend API Health | http://localhost:5000/api/health |
+| MySQL Database | localhost:3308 |
+
+**Note:** These are local development addresses. They are accessible on the computer running CalibGuard, not public internet URLs.
 
 ## Database Initialization
 
-CalibGuard uses MySQL 8.4 and automatically initializes its database through Docker Compose.
+CalibGuard uses MySQL 8.4.
 
-The initialization sequence is:
+The database is initialized automatically when the MySQL data volume is created for the first time.
+
+Initialization sequence:
 
 | Order | File | Purpose |
 |---|---|---|
-| 1 | `database/schema.sql` | Creates the database and base tables |
+| 1 | `database/schema.sql` | Creates database and base tables |
 | 2 | `database/002_integrity_and_history.sql` | Adds integrity constraints, lifecycle history, triggers, and indexes |
-| 3 | `data/phase3b/dataset.sql` | Imports the demonstration dataset |
+| 3 | `data/phase3b/dataset.sql` | Imports demonstration data |
 
-The database is stored in a persistent Docker volume named `calibguard_public_mysql_data` (managed by Docker Compose).
+Database files are stored in a persistent Docker volume.
 
-**Important:** Initialization scripts run automatically only when the MySQL data directory is empty. Restarting the application does not re-import the dataset or recreate the database.
+Initialization scripts do not run again when an existing database volume is reused.
 
-## Stopping and Restarting
+## Managing the Application
 
-Stop the application:
+**Start the application:**
 
-```bash
-docker compose down
-```
-
-Start it again:
-
-```bash
+```powershell
 docker compose up -d
 ```
 
-The database volume remains intact when you run `docker compose down`.
+**Display frontend URL and logs:**
 
-To intentionally delete the database and start from a completely fresh installation:
+```powershell
+docker compose logs -f frontend
+```
 
-```bash
+**Display backend logs:**
+
+```powershell
+docker compose logs -f backend
+```
+
+**Display all service logs:**
+
+```powershell
+docker compose logs -f
+```
+
+**Check container status:**
+
+```powershell
+docker compose ps
+```
+
+**Stop the application:**
+
+```powershell
+docker compose down
+```
+
+**Rebuild after source-code changes:**
+
+```powershell
+docker compose up --build -d
+```
+
+### Reset the Database
+
+If you intentionally want a completely fresh database:
+
+```powershell
 docker compose down -v
 docker compose up --build -d
 ```
 
-**Warning:** The `-v` option permanently deletes the Compose-managed database volume and its stored data.
-
-## Testing
-
-The repository includes Python test modules covering data generation, calibration records, operations, anomaly detection, and production-related workflows.
-
-Run the test suite from the project root after installing the required Python dependencies and any additional test dependencies:
-
-```bash
-python -m pytest tests/
-```
+**Warning:** This deletes the Compose-managed database volume and all its stored data. Do not run this unless you intend to reset your database.
 
 ## Data and Reproducibility
 
-CalibGuard uses synthetic industrial data for demonstration and testing.
+CalibGuard uses synthetic industrial data for demonstration, testing, and validation.
 
-The data workflows include:
+Data workflows include:
+
 - Synthetic data generation.
 - Anomaly injection.
 - Anomaly detection and validation.
 - Dataset exports and manifests.
-- Demonstration data import into MySQL.
+- Demonstration dataset import into MySQL.
 
-The demonstration dataset is included in `data/phase3b/dataset.sql`.
+The demonstration SQL dataset is included in `data/phase3b/dataset.sql`.
 
-The project is intended for development, demonstration, and evaluation. It is not a certified industrial compliance system and should not be used as the sole basis for real-world safety or regulatory decisions.
+## Testing
+
+The repository includes Python test modules covering:
+
+- Calibration records.
+- Data generation.
+- Operational workflows.
+- Phase 3 data processing.
+- Phase 3B data processing.
+- Production workflows.
+
+Install the necessary Python and test dependencies before running:
+
+```powershell
+python -m pytest tests/
+```
 
 ## Troubleshooting
 
-**MySQL is not ready**
+**Frontend is not opening**
 
-```bash
-docker compose logs mysql
+```powershell
+docker compose logs --tail 60 frontend
+```
+
+**Backend database connection issue**
+
+```powershell
+docker compose logs --tail 60 backend
+```
+
+Verify the database is healthy:
+
+```powershell
 docker compose ps
 ```
 
-Wait until MySQL reports a healthy status.
+**Check backend connectivity:**
 
-**Backend cannot connect to MySQL**
-
-Check that:
-- MySQL is healthy.
-- `MYSQL_PASSWORD` and `DB_PASSWORD` match in `.env`.
-- The backend is configured to use the Compose service hostname `mysql`.
-- The database name is `calibguard`.
-
-**Frontend cannot communicate with the backend**
-
-Check:
-
-```bash
-docker compose logs backend
-docker compose logs frontend
+```powershell
+Invoke-RestMethod http://localhost:5000/api/health
 ```
 
-Verify that the backend is available at:
+**Rebuild the containers:**
 
-```text
-http://localhost:5000/api/health
-```
-
-**Rebuild after changing source code**
-
-```bash
+```powershell
 docker compose up --build -d
 ```
 
+## Project Purpose
+
+CalibGuard demonstrates how industrial calibration records, compliance workflows, anomaly detection, database integrity, and operational traceability can be combined into a full-stack software platform.
+
+It is a development and demonstration project, not a certified industrial compliance system. It should not be used as the sole basis for real-world safety or regulatory decisions.
+
 ## License
 
-No license has been specified yet. All rights and permissions are reserved by default unless a license is added to this repository.
+No license has been specified. All rights are reserved by default unless a license is added to this repository.
 
 ---
 
