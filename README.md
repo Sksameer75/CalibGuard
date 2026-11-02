@@ -353,10 +353,5 @@ CalibGuard demonstrates how industrial calibration records, compliance workflows
 
 It is a development and demonstration project, not a certified industrial compliance system. It should not be used as the sole basis for real-world safety or regulatory decisions.
 
-## License
-
-No license has been specified. All rights are reserved by default unless a license is added to this repository.
-
----
 
 **CalibGuard — Industrial Calibration & Compliance Management Platform**
